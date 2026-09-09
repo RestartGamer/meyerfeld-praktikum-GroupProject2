@@ -29,7 +29,7 @@ function startMessage() {
 function introductionMessage(playerName = "") {
     alert(`Hello, ${playerName}`)
 
-    alert(`Project WWW has been initiated. Your Authentication has failed and the countdown sequence has started...\nAfter this message you will have exactly 1 minute to abort the process with the correct access code or it shall wipe.`)
+    alert(`Project WWW has been initiated. The countdown sequence has started...\nYou have one minute to abort the World Wide Wipe.`)
     countdown();
     chooseRoom(0);
 }
@@ -63,15 +63,21 @@ function room1() {
 
     switch (room1Obj.currentState) {
         case 0:
+            alert(`Knowledge can be a blessing or a curse.`)
             alert(`There is one thing a warrior should take before his departure, and that is wisdom.`)
             alert(`How many times do you have to do something, until it becomes a charm?\nChances are, that whatever you wish to achieve, rarely works out the first time. `)
             isAffirmative = confirm(`Will you take this wisdom?`)
 
             if (isAffirmative) {
                 room3Obj.currentState = 2;
+                room2Obj.currentState = 3;
+                room1Obj.currentState = 5;
+                alert(`You have obtained "Wisdom"`)
                 chooseRoom(0);
             } else {
+                alert(`You have confidently declined this wisdom`)
                 room3Obj.currentState = 1;
+                room1Obj.currentState = 5;
                 chooseRoom(0);
             }
             isAffirmative = false;
@@ -86,6 +92,10 @@ function room1() {
             room3Obj.currentState = 4;
             chooseRoom(0);
             break;
+        case 5:
+            alert(`You returned indecisively and died like a dog`)
+            gameOver();
+            break;
     }
 
 
@@ -99,6 +109,7 @@ function room2() {
             if (isAffirmative) {
                 gameOver()
             } else {
+                room2Obj.currentState = 5;
                 chooseRoom(0);
                 isAffirmative = false;
             }
@@ -121,6 +132,21 @@ function room2() {
             } else {
                 gameOver();
             }
+            break;
+        case 3:
+            alert(`Ah...I see that you have acquired wisdom in your travels, stranger...Wisdom enough to face what lies ahead?`)
+            isAffirmative = confirm(`Will you open the door now?`)
+            if (isAffirmative) {
+                alert(`You were wise, but died like a dog`)
+                gameOver();
+            } else {
+                room2Obj.currentState = 5;
+                chooseRoom(0);
+            }
+            break;
+        case 5:
+            alert(`You returned indecisively and died like a dog`)
+            gameOver();
             break;
     }
 }
@@ -193,22 +219,23 @@ function room3() {
 
 
 let roomChoice = 0;
+
 function sectionHall() {
     alert(`You are in the Hall.`);
-    alert(`You see 3 Doors. Each door has something written on it...`)
-    alert(`1 - A new beginning | 2 - A choice | 3 - A challenge`)
-    roomChoice = prompt(`Which one do you choose?`);
-    roomChoice = Number(roomChoice);
+
 
     let endFunction = false;
 
     do {
-
+        alert(`You see 3 Doors. Each one with something written on it...`)
+        alert(`1 - A new beginning | 2 - A choice | 3 - A challenge`)
+        roomChoice = prompt(`Which one do you choose?`);
+        roomChoice = Number(roomChoice);
         if (/^[1-3]$/.test(roomChoice)) {
             chooseRoom(roomChoice);
             endFunction = true;
         } else {
-            alert(`Error. Please insert a valid number from 1 to 3.`)
+            roomChoice === 0 ? null : alert(`Error. Please insert a valid number from 1 to 3.`)
         }
 
     } while (!endFunction)
@@ -218,8 +245,8 @@ function sectionHall() {
 
 
 function gameOver() {
-    isAffirmative = confirm(`Game Over! Would you like to try again? Type "yes" or "no"`)
-    isAffirmative ? gameInitiate() : window.close;
+    isAffirmative = confirm(`Game Over! The entire Internet has been wiped. Would you like to try again? Type "yes" or "no"`)
+    isAffirmative ? gameInitiate() : null;
 }
 
 function gameWon() {
