@@ -110,6 +110,7 @@ function room2() {
                 gameOver()
             } else {
                 room2Obj.currentState = 5;
+                alert(`You have chosen to not open the door just yet.`)
                 chooseRoom(0);
                 isAffirmative = false;
             }
@@ -120,6 +121,7 @@ function room2() {
             if (isAffirmative) {
                 gameOver()
             } else {
+                alert(`You have chosen to not open the door just yet.`)
                 chooseRoom(0);
                 isAffirmative = false;
             }
@@ -130,6 +132,7 @@ function room2() {
             if (isAffirmative) {
                 gameWon();
             } else {
+                alert(`You tried the exit door, but walked incorrectly, fell in slow motion, and died like a lousy dog.`);
                 gameOver();
             }
             break;
@@ -141,6 +144,7 @@ function room2() {
                 gameOver();
             } else {
                 room2Obj.currentState = 5;
+                alert(`You have chosen to not open the door just yet.`)
                 chooseRoom(0);
             }
             break;
@@ -152,6 +156,8 @@ function room2() {
 }
 
 function room3() {
+    alert(`You see a strong fighter in front of you. He has studied his opponents well.`)
+
     if (room3Obj.currentState !== 5) {
         alert(`Fight me!`)
         isAffirmative = confirm(`"Yes" or "No"?`);
@@ -161,10 +167,11 @@ function room3() {
     switch (room3Obj.currentState) {
         case 0:
             if (isAffirmative) {
-                alert(`You lost the fight!.........and died like a dog...`)
+                alert(`You lost the fight!...and died like an innocent penguin eaten by a dog.`)
                 gameOver();
             } else {
                 room3Obj.currentState = 5;
+                alert(`You have studied your opponent and decided to wait for the right moment to strike`)
                 chooseRoom(0);
             }
             break;
@@ -186,15 +193,17 @@ function room3() {
             } else {
                 room2Obj.currentState = 1;
                 room1Obj.currentState = 1;
+                alert(`You couldn't land a punch, he landed a punch , but left no mark. I was able to get away and survive.`)
                 chooseRoom(0);
             }
             break;
         case 3:
             if (isAffirmative) {
-                alert(`I've seen you a second time, but...You were impatient, lost the fight and died like a dog...`);
+                alert(`I've seen you a second time, but...you were impatient, lost the fight, and got dismantled like a low-cost IKEA chair.`);
                 gameOver();
             } else {
                 room1Obj.currentState = 2;
+                alert(`You couldn't land a punch, and nor could he. I got away confidently with faith on my side.`)
                 chooseRoom(0);
             }
             break;
@@ -205,7 +214,7 @@ function room3() {
                 room2Obj.currentState = 2;
                 chooseRoom(0);
             } else {
-                alert(`You were not able to flee this time, and were killed...like a dog`)
+                alert(`You were not able to flee this time and fell like a sack of potatoes to your untimely demise.`);
                 gameOver();
             }
             break;
