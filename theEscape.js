@@ -156,9 +156,8 @@ function room2() {
 }
 
 function room3() {
-    alert(`You see a strong fighter in front of you. He has studied his opponents well.`)
-
     if (room3Obj.currentState !== 5) {
+        alert(`You see a strong fighter in front of you. He has studied his opponents well.`)
         alert(`Fight me!`)
         isAffirmative = confirm(`"Yes" or "No"?`);
     }
