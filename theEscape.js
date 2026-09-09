@@ -76,6 +76,7 @@ function room1() {
                 chooseRoom(0);
             } else {
                 alert(`You have confidently declined this wisdom`)
+                alert(`You have obtained "Resolve"`)
                 room3Obj.currentState = 1;
                 room1Obj.currentState = 5;
                 chooseRoom(0);
@@ -83,7 +84,7 @@ function room1() {
             isAffirmative = false;
             break;
         case 1:
-            alert(`I see you have returned unscathed. You have the momentum, don't stop now!`)
+            alert(`I see you have returned unscathed. You have the momentum of a champion, you can do it, don't stop now!`)
             room3Obj.currentState = 3;
             chooseRoom(0);
             break;
@@ -243,7 +244,7 @@ function room3() {
             }
             break;
         case 5:
-            alert(`You returned indecisively and died like a dog`)
+            alert(`You returned indecisively and died like a dog eaten by a penguine...`)
             gameOver();
             break;
     }
