@@ -149,7 +149,7 @@ function room2() {
             }
             break;
         case 5:
-            alert(`You returned indecisively and died like a dog`)
+            alert(`You returned indecisively and died like the lousiest dog of all doghood`)
             gameOver();
             break;
     }
