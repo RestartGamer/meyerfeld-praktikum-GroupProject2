@@ -94,7 +94,7 @@ function room1() {
             chooseRoom(0);
             break;
         case 5:
-            alert(`You returned indecisively and died like a dog`)
+            alert(`You returned indecisively and died like a sad pigeon eaten by another pigeon that was less sad...`);
             gameOver();
             break;
     }
