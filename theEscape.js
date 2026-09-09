@@ -116,11 +116,12 @@ function room2() {
             }
             break;
         case 1:
-            alert(`I admire your patience. Sometimes the best victory is a fight unfought.`)
+            alert(`I admire your patience. Sometimes the best victory is a fight unfought, so that you may live to fight another day.`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
                 gameOver()
             } else {
+                room2Obj.currentState = 5;
                 alert(`You have chosen to not open the door just yet.`)
                 chooseRoom(0);
                 isAffirmative = false;
@@ -152,12 +153,31 @@ function room2() {
             alert(`You returned indecisively and died like the lousiest dog of all doghood`)
             gameOver();
             break;
+        case 6:
+            alert(`You look stronger than ever before. Are you a man that is willing to "learn", to "fight" or to make a "decision" RIGHT NOW?!`)
+            isAffirmative = confirm(`Will you open the door now?`)
+            if (isAffirmative) {
+                alert(`You have folded like a lousy piece of cheap furniture and died`)
+                gameOver()
+            } else {
+                alert(`You have chosen to not open the door just yet.`)
+                room2Obj.currentState = 5;
+                chooseRoom(0);
+                isAffirmative = false;
+            }
+            break;
     }
 }
 
 function room3() {
+
+
+    room3Obj.currentState === 0 || room3Obj.currentState === 2
+    ? alert(`You see a strong fighter in front of you. He has studied his opponents well.`) 
+    : room3Obj.currentState !== 5 ? alert(`The fighter is enthused about your return`) : null
+
     if (room3Obj.currentState !== 5) {
-        alert(`You see a strong fighter in front of you. He has studied his opponents well.`)
+        
         alert(`Fight me!`)
         isAffirmative = confirm(`"Yes" or "No"?`);
     }
@@ -182,6 +202,7 @@ function room3() {
                 chooseRoom(0);
             } else {
                 alert(`Neither hot nor cold, no story to be told. You return to the beginning, with no silver and no gold."`)
+                room3Obj.currentState = 5;
                 chooseRoom(0)
             }
             break;
@@ -192,6 +213,7 @@ function room3() {
             } else {
                 room2Obj.currentState = 1;
                 room1Obj.currentState = 1;
+                room3Obj.currentState = 5;
                 alert(`You couldn't land a punch, he landed a punch , but left no mark. I was able to get away and survive.`)
                 chooseRoom(0);
             }
@@ -202,6 +224,8 @@ function room3() {
                 gameOver();
             } else {
                 room1Obj.currentState = 2;
+                room2Obj.currentState = 6;
+                room3Obj.currentState = 5;
                 alert(`You couldn't land a punch, and nor could he. I got away confidently with faith on my side.`)
                 chooseRoom(0);
             }
@@ -214,6 +238,7 @@ function room3() {
                 chooseRoom(0);
             } else {
                 alert(`You were not able to flee this time and fell like a sack of potatoes to your untimely demise.`);
+                room3Obj.currentState = 5;
                 gameOver();
             }
             break;
