@@ -65,7 +65,8 @@ function room1() {
         case 0:
             alert(`Knowledge can be a blessing or a curse.`)
             alert(`There is one thing a warrior should take before his departure, and that is wisdom.`)
-            alert(`How many attempts does it take before fortune finally favors you?\nChances are, whatever you wish to achieve won't work out the first time.`);
+            alert(`How many attempts does it take before fortune finally favors you?`);
+            alert(`Chances are, whatever you wish to achieve won't work out the first time.`)
             isAffirmative = confirm(`Will you take this wisdom?`)
 
             if (isAffirmative) {
