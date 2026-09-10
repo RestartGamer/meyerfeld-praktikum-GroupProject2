@@ -174,7 +174,7 @@ function room2() {
 function room3() {
 
 
-    if (room3Obj.currentState === 0 || room3Obj.currentState === 2) {
+    if (room3Obj.currentState === 0 || room3Obj.currentState === 1 || room3Obj.currentState === 2) {
         alert(`You see a strong fighter in front of you. He has studied his opponents well.`)
         alert(`I sense that this challenge will help me succeed.`)
     } else {
