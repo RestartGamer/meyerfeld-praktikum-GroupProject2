@@ -123,7 +123,7 @@ function room2() {
         case 0: alert(`You can make a choice, ${playerName}, but do you have what it takes to deal with the consequence?`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
-                alert(`You tried the exit door, but slipped on a banana, fell in slow motion, and died like a lousy tourist.`);
+                alert(`You tried opening the door, but slipped on a banana, fell in slow motion, and died like a lousy tourist.`);
                 gameOver()
             } else {
                 room2Obj.currentState = 5;
