@@ -8,7 +8,7 @@ const room2Obj = new roomObj();
 const room3Obj = new roomObj();
 
 let startTime = null;
-let TIME_LIMIT = 30*1000;
+let TIME_LIMIT = 90*1000;
 
 var playerName = null;
 
@@ -309,5 +309,3 @@ function isTimeUp(){
     if (!startTime) return false
     return (Date.now() - startTime) >= TIME_LIMIT;
 }
-
-gameInitiate();
