@@ -207,7 +207,7 @@ function room3() {
     switch (room3Obj.currentState) {
         case 0:
             if (isAffirmative) {
-                alert(`You, ${playerName} lost the fight!...and died like an innocent penguin eaten by a dog.`)
+                alert(`You lost the fight!...and died like an innocent penguin eaten by a dog.`)
                 gameOver();
             } else {
                 room3Obj.currentState = 5;
