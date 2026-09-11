@@ -8,7 +8,8 @@ const room2Obj = new roomObj();
 const room3Obj = new roomObj();
 
 let startTime = null;
-let TIME_LIMIT = 90*1000;
+let TIME_LIMIT = 90 * 1000;
+let currentTime = null;
 
 var playerName = null;
 
@@ -47,12 +48,15 @@ function gameInitiate() {
 }
 
 function chooseRoom(room) {
-    if (isTimeUp()){
+    if (isTimeUp()) {
         alert(`Time is up!`)
         gameOver();
         return;
-    } 
+    }
+    const currentSec = typeof currentTime !== 'undefined' ? Math.floor(currentTime / 1000) : 0;
+    const limitSec = typeof TIME_LIMIT !== 'undefined' ? TIME_LIMIT : 0;
 
+    alert(`${currentSec} of ${limitSec / 1000} seconds.`);
     switch (room) {
         case 0: sectionHall()
             break;
@@ -118,6 +122,7 @@ function room2() {
         case 0: alert(`You can make a choice, ${playerName}, but do you have what it takes to deal with the consequence?`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
+                alert(`You tried the exit door, but slipped on a banana, fell in slow motion, and died like a lousy tourist.`);
                 gameOver()
             } else {
                 room2Obj.currentState = 5;
@@ -130,6 +135,7 @@ function room2() {
             alert(`I admire your patience. Sometimes the best victory is a fight unfought, so that you may live to fight another day.`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
+                alert(`You tried the exit door, but walked slightly too fast, snapped like an IKEA chair, and unfortunately died miserably.`);
                 gameOver()
             } else {
                 room2Obj.currentState = 5;
@@ -305,7 +311,8 @@ function countdown() {
     startTime = Date.now();
 }
 
-function isTimeUp(){
+function isTimeUp() {
     if (!startTime) return false
-    return (Date.now() - startTime) >= TIME_LIMIT;
+    currentTime = Date.now() - startTime
+    return currentTime >= TIME_LIMIT;
 }
