@@ -73,7 +73,7 @@ function room1() {
     switch (room1Obj.currentState) {
         case 0:
             alert(`Knowledge can be a blessing or a curse.`)
-            alert(`There is one thing a warrior should take before his departure, and that is wisdom.`)
+            alert(`There is one thing a warrior like ${playerName} should take before his departure, and that is wisdom.`)
             alert(`How many attempts does it take before fortune finally favors you?`);
             alert(`Chances are, whatever you wish to achieve won't work out the first time.`)
             isAffirmative = confirm(`Will you take this wisdom?`)
@@ -94,17 +94,17 @@ function room1() {
             isAffirmative = false;
             break;
         case 1:
-            alert(`I see you have returned unscathed. You have the momentum of a champion, you can do it, don't stop now!`)
+            alert(`I see you, ${playerName} have returned unscathed. You have the momentum of a champion, you can do it, don't stop now!`)
             room3Obj.currentState = 3;
             chooseRoom(0);
             break;
         case 2:
-            alert(`Third time's the charm, 'ey? Well now is the time to strike!`)
+            alert(`Third time's the charm, 'ey, ${playerName}? Well now is the time to strike!`)
             room3Obj.currentState = 4;
             chooseRoom(0);
             break;
         case 5:
-            alert(`You returned indecisively and died like a sad pigeon eaten by another pigeon that was eaten by a dog...`);
+            alert(`You, ${playerName} returned indecisively and died like a sad pigeon eaten by another pigeon that was eaten by a dog...`);
             gameOver();
             break;
     }
@@ -115,7 +115,7 @@ function room1() {
 
 function room2() {
     switch (room2Obj.currentState) {
-        case 0: alert(`You can make a choice, but do you have what it takes to deal with the consequence?`)
+        case 0: alert(`You can make a choice, ${playerName}, but do you have what it takes to deal with the consequence?`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
                 gameOver()
@@ -149,10 +149,10 @@ function room2() {
             }
             break;
         case 3:
-            alert(`Ah...I see that you have acquired wisdom in your travels, stranger...Wisdom enough to face what lies ahead?`)
+            alert(`I see that you have acquired wisdom in your travels, ${playerName}...Wisdom enough to face what lies ahead?`)
             isAffirmative = confirm(`Will you open the door now?`)
             if (isAffirmative) {
-                alert(`You were wise, but died like a dog`)
+                alert(`You, ${playerName} were wise, but died with the melodramatically tone of a sad dog`)
                 gameOver();
             } else {
                 room2Obj.currentState = 5;
@@ -161,7 +161,7 @@ function room2() {
             }
             break;
         case 5:
-            alert(`You returned indecisively and died like the lousiest dog of all doghood`)
+            alert(`You returned indecisively and died like the lousiest dog of all doghood in dogmania`)
             gameOver();
             break;
         case 6:
@@ -193,14 +193,14 @@ function room3() {
     if (room3Obj.currentState !== 5) {
 
         alert(`Fight me!`)
-        isAffirmative = confirm(`"Yes" or "No"?`);
+        isAffirmative = confirm(`"Yes" or "No", ${playerName}?`);
     }
 
 
     switch (room3Obj.currentState) {
         case 0:
             if (isAffirmative) {
-                alert(`You lost the fight!...and died like an innocent penguin eaten by a dog.`)
+                alert(`You, ${playerName} lost the fight!...and died like an innocent penguin eaten by a dog.`)
                 gameOver();
             } else {
                 room3Obj.currentState = 5;
@@ -210,7 +210,7 @@ function room3() {
             break;
         case 1:
             if (isAffirmative) {
-                alert(`You have quite the resolve! I have been beat.\nFair and square. Here, take this...you shall have my perseverance`);
+                alert(`You have quite the resolve, ${playerName}! I have been beat.\nFair and square. Here, take this...you shall have my perseverance`);
                 alert(`The item "Perserverance" has been obtained.`)
                 room2Obj.currentState = 2;
                 chooseRoom(0);
@@ -222,7 +222,7 @@ function room3() {
             break;
         case 2:
             if (isAffirmative) {
-                alert(`You were impatient, lost the fight and died like a dog...`)
+                alert(`You were impatient, lost the fight and died like a dog that was eaten by an elephant...`)
                 gameOver()
             } else {
                 room2Obj.currentState = 1;
@@ -234,20 +234,20 @@ function room3() {
             break;
         case 3:
             if (isAffirmative) {
-                alert(`I've seen you a second time, but...you were impatient, lost the fight, and got dismantled like a low-cost IKEA chair.`);
+                alert(`I've seen you a second time, ${playerName} but...you were impatient, lost the fight, and got dismantled like a low-cost IKEA chair.`);
                 gameOver();
             } else {
                 room1Obj.currentState = 2;
                 room2Obj.currentState = 6;
                 room3Obj.currentState = 5;
-                alert(`You couldn't land a punch, and nor could he. I got away confidently with faith on my side.`)
+                alert(`You couldn't land a punch, ${playerName}, and nor could he. You got away confidently with all your limbs in tact and faith on my side.`)
                 chooseRoom(0);
             }
             break;
         case 4:
             if (isAffirmative) {
-                alert(`I've seen you a third time and I have been beat. How is that possible?\nAnyways. Here, take this...you shall have my perseverance`);
-                alert(`The item "Perserverance" has been obtained.`)
+                alert(`I've seen you a third time, ${playerName}, and I have been beat. How is that possible?\nAnyways. Here, take this...you shall have my perseverance`);
+                alert(`The item "Perseverance" has been obtained.`)
                 room2Obj.currentState = 2;
                 chooseRoom(0);
             } else {
@@ -257,7 +257,7 @@ function room3() {
             }
             break;
         case 5:
-            alert(`You returned indecisively and died like a dog eaten by a penguine...`)
+            alert(`You, ${playerName}, returned indecisively and died like a dog eaten by a penguine...`)
             gameOver();
             break;
     }
