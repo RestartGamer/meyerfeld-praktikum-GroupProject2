@@ -99,6 +99,7 @@ function room1() {
             break;
         case 1:
             alert(`I see you, ${playerName} have returned unscathed. You have the momentum of a champion, you can do it, don't stop now!`)
+            room1Obj.currentState = 5;
             room3Obj.currentState = 3;
             chooseRoom(0);
             break;
@@ -108,7 +109,7 @@ function room1() {
             chooseRoom(0);
             break;
         case 5:
-            alert(`You, ${playerName} returned indecisively and died like a sad pigeon eaten by another pigeon that was eaten by a dog...`);
+            alert(`Oh no...it seems you returned indecisively and died like a sad pigeon with the melodramatic sound of a sad clarinet...`);
             gameOver();
             break;
     }
@@ -218,6 +219,7 @@ function room3() {
             if (isAffirmative) {
                 alert(`You have quite the resolve, ${playerName}! I have been beat.\nFair and square. Here, take this...you shall have my perseverance`);
                 alert(`The item "Perserverance" has been obtained.`)
+                room1Obj.currentState = 1;
                 room2Obj.currentState = 2;
                 chooseRoom(0);
             } else {
@@ -254,6 +256,7 @@ function room3() {
             if (isAffirmative) {
                 alert(`I've seen you a third time, ${playerName}, and I have been beat. How is that possible?\nAnyways. Here, take this...you shall have my perseverance`);
                 alert(`The item "Perseverance" has been obtained.`)
+                room1Obj.currentState = 1;
                 room2Obj.currentState = 2;
                 chooseRoom(0);
             } else {
