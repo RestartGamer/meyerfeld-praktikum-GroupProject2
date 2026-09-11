@@ -7,6 +7,9 @@ const room1Obj = new roomObj();
 const room2Obj = new roomObj();
 const room3Obj = new roomObj();
 
+let startTime = null;
+let TIME_LIMIT = 30*1000;
+
 var playerName = null;
 
 function startMessage() {
@@ -29,7 +32,7 @@ function startMessage() {
 function introductionMessage(playerName = "") {
     alert(`Hello, ${playerName}`)
 
-    alert(`Project WWW has been initiated. The countdown sequence has started...\nYou have one minute to abort the World Wide Wipe.`)
+    alert(`Project WWW has been initiated. The countdown sequence has started...\nYou have ${TIME_LIMIT / 1000} seconds to abort the World Wide Wipe.`)
     countdown();
     chooseRoom(0);
 }
@@ -44,6 +47,12 @@ function gameInitiate() {
 }
 
 function chooseRoom(room) {
+    if (isTimeUp()){
+        alert(`Time is up!`)
+        gameOver();
+        return;
+    } 
+
     switch (room) {
         case 0: sectionHall()
             break;
@@ -293,17 +302,12 @@ function gameWon() {
 
 
 function countdown() {
-    let secondsLeft = 60;
-    const timer = setInterval(() => {
-        secondsLeft--;
-        if (secondsLeft <= 0) {
-            alert(`The countdown has ended. No access code has been received. Commencing World Wide Wipe...`)
-            gameOver();
-        }
+    startTime = Date.now();
+}
 
-        if (secondsLeft % 15 === 0) { alert(`${secondsLeft} seconds left`) }
-
-    }, 1000);
+function isTimeUp(){
+    if (!startTime) return false
+    return (Date.now() - startTime) >= TIME_LIMIT;
 }
 
 gameInitiate();
