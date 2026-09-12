@@ -13,6 +13,14 @@ let currentTime = null;
 
 var playerName = null;
 
+let isAffirmative = false;
+
+function instructionMessage() {
+    isAffirmative = confirm(`How to play\n\nYou will play a text-based game, where you will need to navigate different rooms,\nwhile solving riddles in order to succeed in aborting the World Wide Wipe protocol.Use "Enter" to say\n"Yes" and "Escape" to say "No".\n\nYou can alternatively also insert "gameInitiate()" in the console without the quotes.`)
+    if (isAffirmative) { gameInitiate() } else { null }
+}
+instructionMessage();
+
 function startMessage() {
     alert("Project WWW initiating...");
 
@@ -70,7 +78,7 @@ function chooseRoom(room) {
     }
 }
 
-let isAffirmative = false;
+
 
 function room1() {
 
