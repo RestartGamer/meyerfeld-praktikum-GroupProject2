@@ -16,8 +16,8 @@ var playerName = null;
 let isAffirmative = false;
 
 function instructionMessage() {
-    isAffirmative = confirm(`How to play\n\nYou will play a text-based game, where you will need to navigate different rooms,\nwhile solving riddles in order to succeed in aborting the World Wide Wipe protocol.Use "Enter" to say\n"Yes" and "Escape" to say "No".\n\nYou can alternatively also insert "gameInitiate()" in the console without the quotes.`)
-    if (isAffirmative) { gameInitiate() } else { null }
+    isAffirmative = confirm(`How to play\n\nYou will play a text-based game, where you will need to navigate different rooms,\nwhile solving riddles in order to succeed in aborting the World Wide Wipe protocol.Use "Enter" to say\n"Yes" and "Escape" to say "No".\n\nYou can alternatively also insert "game()" in the console without the quotes.`)
+    if (isAffirmative) { game() } else { null }
 }
 instructionMessage();
 
@@ -47,7 +47,7 @@ function introductionMessage(playerName = "") {
 }
 
 
-function gameInitiate() {
+function game() {
     room1Obj.currentState = 0;
     room2Obj.currentState = 0;
     room3Obj.currentState = 0;
@@ -310,7 +310,7 @@ function sectionHall() {
 
 function gameOver() {
     isAffirmative = confirm(`Game Over! The entire Internet has been wiped. Would you like to try again? Type "yes" or "no"`)
-    isAffirmative ? gameInitiate() : null;
+    isAffirmative ? game() : null;
 }
 
 function gameWon() {
