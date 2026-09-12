@@ -8,7 +8,7 @@ const room2Obj = new roomObj();
 const room3Obj = new roomObj();
 
 let startTime = null;
-let TIME_LIMIT = 90 * 1000;
+let TIME_LIMIT = 120 * 1000;
 let currentTime = null;
 
 var playerName = null;
